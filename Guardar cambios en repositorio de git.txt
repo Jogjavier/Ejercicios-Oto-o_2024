@@ -1,0 +1,5 @@
+cd /ruta/a/tu/proyecto           # Navegar al directorio del proyecto
+git status                       # Ver el estado del repositorio
+git add .                        # Añadir todos los cambios al área de preparación
+git commit -m "Mensaje de commit" # Hacer el commit con un mensaje descriptivo
+git push origin main             # Subir los cambios al repositorio remoto
