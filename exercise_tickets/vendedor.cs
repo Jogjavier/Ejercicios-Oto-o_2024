@@ -1,8 +1,8 @@
-public class Vendedor
+public class Vendedor: Usuario
 {
-    public string Nombre{get;set;}
+ 
+    private List<int> listaTickets {get;set;}
+    public List<int> MostrarBoletosDisponibles  () => listaTickets;
 
-   public string Direccion{get;set;}
 
-   public string Email{get;set;}
 }

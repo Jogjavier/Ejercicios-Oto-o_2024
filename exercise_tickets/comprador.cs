@@ -1,8 +1,4 @@
-public class Comprador 
+public class Comprador : Usuario
 {
-    public string Nombre{get;set;}
-
-   public string Direccion{get;set;}
-
-   public string Email{get;set;}
+   
 }
