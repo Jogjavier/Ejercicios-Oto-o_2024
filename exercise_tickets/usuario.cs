@@ -6,5 +6,5 @@ public class Usuario
 
     public string Email{get;set;}
 
-    public string TipoUsuario{get;set;}
+    public TipoUsuario tipoUsuario {get;set;}
 }
