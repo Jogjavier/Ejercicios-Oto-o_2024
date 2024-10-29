@@ -6,7 +6,4 @@ public class Ticket
     public StatusTicket Status { get;set;}
 
     public double Precio {get;set;}
-
-
-
 }

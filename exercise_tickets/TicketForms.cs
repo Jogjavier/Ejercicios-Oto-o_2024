@@ -1,5 +1,3 @@
-using System.Security.Cryptography.X509Certificates;
-
 public class TicketForms 
 {
         static int id = 0;
@@ -10,9 +8,56 @@ public class TicketForms
     public TicketForms(Vendedor vendedor)
     {
         this._vendedor = vendedor;
-        this._listaTickets = new List<Ticket>();
-
+        this._listaTickets = GetTickets();
     }
+
+
+
+ 
+    private List<Ticket> GetTickets()
+    {
+        return new List<Ticket>
+        {
+            new Ticket
+            {
+                Id = 1,
+                NombreEvento = "Concierto Rock",
+                Status = StatusTicket.OnSale,
+                Precio = 75.50
+            },
+            new Ticket
+            {
+                Id = 2,
+                NombreEvento = "Festival de Jazz",
+                Status = StatusTicket.OnSale,
+                Precio = 120.00
+            },
+            new Ticket
+            {
+                Id = 3,
+                NombreEvento = "Teatro Musical",
+                Status = StatusTicket.OnSale,
+                Precio = 95.00
+            },
+            new Ticket
+            {
+                Id = 4,
+                NombreEvento = "Partido de Fútbol",
+                Status = StatusTicket.OnSale,
+                Precio = 85.00
+            },
+            new Ticket
+            {
+                Id = 5,
+                NombreEvento = "Exposición de Arte",
+                Status = StatusTicket.OnSale,
+                Precio = 45.00
+            }
+        };
+    }
+
+ 
+
     public void MostrarBoletosDisponibles  () 
     { 
 
@@ -21,6 +66,7 @@ public class TicketForms
             Console.WriteLine($"Ticket id : {item.Id}");
             Console.WriteLine($"Nombre : {item.NombreEvento}");
             Console.WriteLine($"Precio : {item.Precio}");
+            
         }
     }
 
