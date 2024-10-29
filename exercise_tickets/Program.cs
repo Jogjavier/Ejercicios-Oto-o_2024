@@ -14,35 +14,32 @@ var input = Console.ReadKey().KeyChar;
 Usuario usuario;
 
 if(input == 'V')
+{ 
     usuario = new Vendedor();
+    VendedorForms forms = new VendedorForms((Vendedor)usuario);
+    forms.CapturaDatosVendedor();
+
+
+}
 else if (input == 'C')
     usuario = new Comprador();
 else 
     return;
 
-Console.WriteLine("Nombre: ");
-
-usuario.Nombre = Console.ReadLine();
-
-Console.WriteLine("Direccion");
-
-usuario.Direccion = Console.ReadLine();
-
-Console.WriteLine("Email");
-
-usuario.Email = Console.ReadLine();
+    
 
 
 
 if( usuario.GetType() == typeof(Vendedor))
 {
+    TicketForms ticketForms = new TicketForms((Vendedor)usuario);
     Console.WriteLine("Quieres dar de alta un boleto o quieres vender? (A/V)");
     var input2 = Console.ReadKey().KeyChar;
 
     if(input2 == 'A')
     {
-        ((Vendedor)usuario).CapturarNuevoTicket();
-        ((Vendedor)usuario).MostrarBoletosDisponibles();
+        ticketForms.CapturarNuevoTicket();
+        ticketForms.MostrarBoletosDisponibles();
     }
 
 }
