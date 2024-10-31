@@ -29,7 +29,9 @@ public class VendedorForms
         lista.Add(fila);
         
         File.WriteAllLines("archivot.txt",lista);
-        
+        File.WriteAllText("archivot.txt", fila);
+
+        var filesreaded = File.ReadAllLines("archivot.txt");
     }
 
 
