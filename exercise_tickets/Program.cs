@@ -5,6 +5,20 @@
 
 /* Si el usuario es comprador, mostrar la lista de todos los boletos disponibles */
 
+
+/* Crear un metodo que, reciba como parametro el id del boleto y cambie el status a vendido y muestre los boletos comprados por el usuario
+comprador */
+
+/* Crear un metodo para guardar la informacion de los tickets para vender */
+
+
+/* Obtener el listado de tickets disponibles desde este archivo cuando un comprador pregunte por ellos */
+
+using exercise_tickets;
+
+
+
+
 /* Crear un metodo que, reciba como parametro el id del boleto y cambie el status a vendido y muestre los boletos comprados por el usuaari
 comprador */
 
@@ -25,7 +39,21 @@ if(input == 'V')
 
 }
 else if (input == 'C')
+{
+
     usuario = new Comprador();
+    TicketForms ticketForms = new TicketForms(new Vendedor());
+    ticketForms.MostrarBoletosDisponibles();
+    Console.ReadKey();
+    
+    CompradorForms compradorForms = new CompradorForms((Comprador)usuario);
+    Console.WriteLine("Ingresa el id del ticket que quieres comprar?");
+    string strTicket = Console.ReadLine();
+    int idTicket = Int32.Parse(strTicket);
+    
+    compradorForms.ComprarBoleto(idTicket, ticketForms._listaTickets);
+     
+}
 else 
     return;
 
