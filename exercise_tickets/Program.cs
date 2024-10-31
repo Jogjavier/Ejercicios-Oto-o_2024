@@ -3,24 +3,26 @@
 //Hacer el modelado de los objetos que podrian ser utilizados
 
 
-/* Si el usuario es comprador, mostrar la lista de todos los boletos disponibles */
+/* Si el usuario es comprador, mostrar la lista de todos los boletos disponibles */  // Javier
 
 
 /* Crear un metodo que, reciba como parametro el id del boleto y cambie el status a vendido y muestre los boletos comprados por el usuario
-comprador */
+comprador */  // Alvaro
 
-/* Crear un metodo para guardar la informacion de los tickets para vender */
+/* Crear un metodo para guardar la informacion de los tickets para vender  y cada archivo de tickets debera llamarse con el id del vendedor */
+// Osvaldo 
+
+/* Obtener el listado de tickets disponibles desde este archivo cuando un comprador pregunte por ellos */ // Alvaro
+
+/* Crear un metodo para guardar la informacion de los tickets comprados y cada archivo de tickets debera llamarse con el id del vendedor */
+// Itzel o Javier. 
 
 
-/* Obtener el listado de tickets disponibles desde este archivo cuando un comprador pregunte por ellos */
 
 using exercise_tickets;
 
 
-
-
-/* Crear un metodo que, reciba como parametro el id del boleto y cambie el status a vendido y muestre los boletos comprados por el usuaari
-comprador */
+ 
 
 Console.WriteLine("Ingresar datos del usuario");
 

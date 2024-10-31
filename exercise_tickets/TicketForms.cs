@@ -11,47 +11,7 @@ public class TicketForms
         this._listaTickets = GetTickets();
 
     }
-    private List<Ticket> GetTickets()
-    {
-        return new List<Ticket>
-        {
-            new Ticket
-            {
-                Id = 1,
-                NombreEvento = "Concierto Rock",
-                Status = StatusTicket.OnSale,
-                Precio = 75.50
-            },
-            new Ticket
-            {
-                Id = 2,
-                NombreEvento = "Festival de Jazz",
-                Status = StatusTicket.OnSale,
-                Precio = 120.00
-            },
-            new Ticket
-            {
-                Id = 3,
-                NombreEvento = "Teatro Musical",
-                Status = StatusTicket.OnSale,
-                Precio = 95.00
-            },
-            new Ticket
-            {
-                Id = 4,
-                NombreEvento = "Partido de Fútbol",
-                Status = StatusTicket.OnSale,
-                Precio = 85.00
-            },
-            new Ticket
-            {
-                Id = 5,
-                NombreEvento = "Exposición de Arte",
-                Status = StatusTicket.OnSale,
-                Precio = 45.00
-            }
-        };
-    }
+    
 
  
 
