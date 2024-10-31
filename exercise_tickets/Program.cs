@@ -5,6 +5,7 @@
 
 /* Si el usuario es comprador, mostrar la lista de todos los boletos disponibles */
 
+
 /* Crear un metodo que, reciba como parametro el id del boleto y cambie el status a vendido y muestre los boletos comprados por el usuario
 comprador */
 
@@ -15,9 +16,13 @@ comprador */
 
 using exercise_tickets;
 
+
+
+
+/* Crear un metodo que, reciba como parametro el id del boleto y cambie el status a vendido y muestre los boletos comprados por el usuaari
+comprador */
+
 Console.WriteLine("Ingresar datos del usuario");
-
-
 
 Console.WriteLine(" Compras o vendes boletos (V/C)");
 
