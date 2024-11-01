@@ -1,14 +1,15 @@
 public class TicketForms 
 {
-        static int id = 0;
+         static int id = 0;
     
     private readonly Vendedor _vendedor;
-    private List<Ticket> _listaTickets {get;set;}
+    public List<Ticket> _listaTickets {get;set;}
 
     public TicketForms(Vendedor vendedor)
     {
         this._vendedor = vendedor;
         this._listaTickets = GetTickets();
+
     }
 
 

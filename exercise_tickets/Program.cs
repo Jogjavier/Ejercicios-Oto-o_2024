@@ -16,6 +16,9 @@ var input = Console.ReadKey().KeyChar;
 
 Usuario usuario;
 
+//if(input == 'C')
+
+
 if(input == 'V')
 { 
     usuario = new Vendedor();
@@ -25,7 +28,14 @@ if(input == 'V')
 
 }
 else if (input == 'C')
+{
     usuario = new Comprador();
+    TicketForms ticketForms = new TicketForms(new Vendedor());
+    ticketForms.MostrarBoletosDisponibles();
+    Console.ReadKey();
+
+    
+}
 else 
     return;
 
