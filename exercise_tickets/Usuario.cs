@@ -7,4 +7,6 @@ public class Usuario
     public string Email{get;set;}
 
     public TipoUsuario tipoUsuario {get;set;}
+
+    public int Id {get;set;}
 }
