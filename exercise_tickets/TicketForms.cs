@@ -1,20 +1,16 @@
 public class TicketForms 
 {
-        static int id = 0;
-    
+    static int id = 0;
     private readonly Vendedor _vendedor;
     public List<Ticket> _listaTickets {get;set;}
 
     public TicketForms(Vendedor vendedor)
     {
         this._vendedor = vendedor;
-        this._listaTickets = GetTickets();
+        this._listaTickets = GetTickets(); // Tengo duda si debe ser GetTicketsFromFile
 
     }
     
-
- 
-
     public void MostrarBoletosDisponibles  () 
     { 
 
@@ -23,7 +19,6 @@ public class TicketForms
             Console.WriteLine($"Ticket id : {item.Id}");
             Console.WriteLine($"Nombre : {item.NombreEvento}");
             Console.WriteLine($"Precio : {item.Precio}");
-            
         }
     }
     
@@ -77,16 +72,16 @@ public class TicketForms
         var NombreEvento = Console.ReadLine();
         Console.WriteLine("Precio del boleto");
         string strprecio = Console.ReadLine();
-         if(!double.TryParse( strprecio, out double precio))
-         {
+        if(!double.TryParse( strprecio, out double precio))
+        {
             Console.WriteLine("Precio no valido");
-         }
+        }
 
         Console.WriteLine("Cuantos boletos tienes disponibles?");
-         string strTicketDisp = Console.ReadLine();
+        string strTicketDisp = Console.ReadLine();
        
-         if(int.TryParse(strTicketDisp, out int ticketsDisp))
-         {
+        if(int.TryParse(strTicketDisp, out int ticketsDisp))
+        {
             for (int x=0; x<ticketsDisp;x++ )
             {
                 id++;
@@ -96,12 +91,50 @@ public class TicketForms
                 ticket.NombreEvento = NombreEvento;
                 ticket.Status = StatusTicket.OnSale;
                 _listaTickets.Add(ticket);
+                GuardarTicketEnArchivo(ticket);
             }
-         }
-         else 
-         {
+        }
+        else 
+        {
             Console.WriteLine("Numero no valido");
-         }
-         
+        }
     }
+
+    /* Crear un método para guardar la información de los tickets para vender y cada archivo de tickets deberá llamarse con el id del vendedor - Osvaldo */ 
+    private void GuardarTicketEnArchivo(Ticket ticket)
+    {
+    
+    }
+
+    /* Obtener el listado de tickets disponibles desde este archivo cuando un comprador pregunte por ellos - Álvaro */ 
+    private List<Ticket> ObtenerTicketsDeArchivo()
+    {
+        var tickets = new List<Ticket>();
+
+        if (Files.Exists("tickets.txt"))
+        {
+            var lines = Files.RevaradAllLines("tickets.txt")
+            foreach (for var line in lines)
+            {
+                var parts = line.Split(',');
+                if (parts.lenght == 4)
+                {
+                    var ticket = new Ticket
+                    {
+                        Id = int.Parse[parts[0]],
+                        NombreEvento = parts[1],
+                        Status = Enum.Parse<StatusTicket>(parts[2]),
+                        Precio = double.Parse(parts[3])
+                    };
+                    tickets.Add(ticket);
+                }
+            }
+        }
+        return tickets;
+    }
+
+    /* Crear un metodo para guardar la informacion de los tickets comprados y cada archivo de tickets debera llamarse con el id del vendedor - Itzel o Javier */
+
+    
+
 }
