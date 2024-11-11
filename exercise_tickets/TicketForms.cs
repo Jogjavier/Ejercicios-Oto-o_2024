@@ -105,18 +105,5 @@ public class TicketForms
          
     }
 
-    public void GuardarTicketsComprados(List<Ticket> ticketsComprados)
-    {
-    string fileName = $"tickets_vendedor_{_vendedor.Id}.txt";
-
-    using (StreamWriter writer = new StreamWriter(fileName))
-    {
-        
-        foreach (var ticket in ticketsComprados)
-        {
-            writer.WriteLine($"ID: {ticket.Id}, Evento: {ticket.NombreEvento}, Precio: {ticket.Precio}");
-        }
-    }
-    Console.WriteLine($"Tickets comprados guardados en el archivo: {fileName}");
-    }
+   
 }
