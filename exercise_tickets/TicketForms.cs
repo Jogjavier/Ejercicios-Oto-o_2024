@@ -111,17 +111,17 @@ public class TicketForms
     {
         var tickets = new List<Ticket>();
 
-        if (Files.Exists("tickets.txt"))
+        if (File.Exists("tickets.txt"))
         {
-            var lines = Files.RevaradAllLines("tickets.txt")
-            foreach (for var line in lines)
+            var lines = File.ReadAllLines("tickets.txt");
+            foreach (var line in lines)
             {
                 var parts = line.Split(',');
-                if (parts.lenght == 4)
+                if (parts.Length == 4)
                 {
                     var ticket = new Ticket
                     {
-                        Id = int.Parse[parts[0]],
+                        Id = int.Parse(parts[0]),
                         NombreEvento = parts[1],
                         Status = Enum.Parse<StatusTicket>(parts[2]),
                         Precio = double.Parse(parts[3])
