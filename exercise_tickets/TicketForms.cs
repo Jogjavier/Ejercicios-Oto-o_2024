@@ -12,6 +12,9 @@ public class TicketForms
 
     }
     
+
+ 
+
     public void MostrarBoletosDisponibles  () 
     { 
 
@@ -93,16 +96,50 @@ public class TicketForms
                 ticket.NombreEvento = NombreEvento;
                 ticket.Status = StatusTicket.OnSale;
                 _listaTickets.Add(ticket);
+                GuardarTicketEnArchivo(ticket);
             }
          }
          else 
          {
             Console.WriteLine("Numero no valido");
-         }
-         
-         
-         
+        }
     }
 
-   
+    /* Crear un método para guardar la información de los tickets para vender y cada archivo de tickets deberá llamarse con el id del vendedor - Osvaldo */ 
+    private void GuardarTicketEnArchivo(Ticket ticket)
+    {
+    
+    }
+
+    /* Obtener el listado de tickets disponibles desde este archivo cuando un comprador pregunte por ellos - Álvaro */ 
+    private List<Ticket> ObtenerTicketsDeArchivo()
+    {
+        var tickets = new List<Ticket>();
+
+        if (File.Exists("tickets.txt"))
+        {
+            var lines = File.ReadAllLines("tickets.txt");
+            foreach (var line in lines)
+            {
+                var parts = line.Split(',');
+                if (parts.Length == 4)
+                {
+                    var ticket = new Ticket
+                    {
+                        Id = int.Parse(parts[0]),
+                        NombreEvento = parts[1],
+                        Status = Enum.Parse<StatusTicket>(parts[2]),
+                        Precio = double.Parse(parts[3])
+                    };
+                    tickets.Add(ticket);
+                }
+            }
+        }
+        return tickets;
+    }
+
+    /* Crear un metodo para guardar la informacion de los tickets comprados y cada archivo de tickets debera llamarse con el id del vendedor - Itzel o Javier */
+
+    
+
 }

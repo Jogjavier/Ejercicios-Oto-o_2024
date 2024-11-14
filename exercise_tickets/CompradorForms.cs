@@ -19,6 +19,7 @@ public class CompradorForms
         if (ticket != null)
         {
             ticket.Status = StatusTicket.Sold;
+            
             boletosComprados.Add(ticket);  //este nombre depende del método que haga Javier
             Console.WriteLine($"Boleto comprado: {ticket.NombreEvento} por {ticket.Precio}");
 

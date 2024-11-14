@@ -6,4 +6,9 @@ public class Ticket
     public StatusTicket Status { get;set;}
 
     public double Precio {get;set;}
+    
+    public Usuario? Vendedor {get;set;}
+    public Usuario? Comprador {get;set;}
+    
+
 }
