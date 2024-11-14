@@ -54,8 +54,7 @@ else if (input == 'C')
     int idTicket = Int32.Parse(strTicket);
     
     compradorForms.ComprarBoleto(idTicket, ticketForms._listaTickets);
-
-     compradorForms.GuardarTicketsComprados();
+    compradorForms.GuardarTicketsComprados();
      
 }
 else 

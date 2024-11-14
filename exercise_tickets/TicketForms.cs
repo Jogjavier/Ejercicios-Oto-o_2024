@@ -12,9 +12,6 @@ public class TicketForms
 
     }
     
-
- 
-
     public void MostrarBoletosDisponibles  () 
     { 
 
@@ -102,6 +99,8 @@ public class TicketForms
          {
             Console.WriteLine("Numero no valido");
          }
+         
+         
          
     }
 
