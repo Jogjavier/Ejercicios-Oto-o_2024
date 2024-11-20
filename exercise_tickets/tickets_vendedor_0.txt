@@ -1,0 +1,5 @@
+ID: 1, Evento: Concierto Rock, Precio: 75.5
+ID: 2, Evento: Festival de Jazz, Precio: 120
+ID: 3, Evento: Teatro Musical, Precio: 95
+ID: 4, Evento: Partido de Fútbol, Precio: 85
+ID: 5, Evento: Exposición de Arte, Precio: 45
