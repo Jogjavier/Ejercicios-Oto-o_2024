@@ -17,6 +17,8 @@ comprador */  // Alvaro
 /* Crear un metodo para guardar la informacion de los tickets comprados y cada archivo de tickets debera llamarse con el id del vendedor */
 // Itzel o Javier. 
 
+//Crear un metodo para cambiar el estatus de la lsita de tickets que diga si el boleto es de comprador o de vendedor,solo va a exixtir una lista. --Javier
+
 
 
 using exercise_tickets;
@@ -55,6 +57,8 @@ else if (input == 'C')
     
     compradorForms.ComprarBoleto(idTicket, ticketForms._listaTickets);
     compradorForms.GuardarTicketsComprados();
+
+    
      
 }
 else 

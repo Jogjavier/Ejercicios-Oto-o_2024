@@ -105,11 +105,41 @@ public class TicketForms
         }
     }
 
-    /* Crear un método para guardar la información de los tickets para vender y cada archivo de tickets deberá llamarse con el id del vendedor - Osvaldo */ 
-    private void GuardarTicketEnArchivo(Ticket ticket)
+    public class TicketForms
+{
+    private List<Ticket> _listaTickets;
+
+    public TicketForms()
     {
-    
+        // Inicialización de la lista de tickets (ejemplo)
+        _listaTickets = new List<Ticket>
+        {
+            new Ticket { Id = 1, NombreEvento = "Concierto Rock", Precio = 75.50, VendedorId = 123, Status = StatusTicket.OnSale },
+            new Ticket { Id = 2, NombreEvento = "Festival de Jazz", Precio = 120.00, VendedorId = 456, Status = StatusTicket.OnSale }
+        };
     }
+    //Javier 
+    public void CambiarEstadoTicket(int ticketId, int? compradorId, StatusTicket nuevoStatus)
+    {
+        var ticket = _listaTickets.FirstOrDefault(t => t.Id == ticketId);
+
+        if (ticket == null)
+        {
+            Console.WriteLine("El ticket no existe.");
+            return;
+        }
+
+        if (ticket.Status == StatusTicket.Sold)
+        {
+            Console.WriteLine("El ticket ya ha sido vendido.");
+            return;
+        }
+
+        ticket.Status = nuevoStatus;
+        ticket.CompradorId = compradorId;
+        Console.WriteLine($"El ticket con ID {ticket.Id} ahora tiene el estado {ticket.Status}.");
+    }
+}
 
     /* Obtener el listado de tickets disponibles desde este archivo cuando un comprador pregunte por ellos - Álvaro */ 
     private List<Ticket> ObtenerTicketsDeArchivo()
