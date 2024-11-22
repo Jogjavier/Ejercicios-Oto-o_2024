@@ -124,7 +124,7 @@ public class TicketForms
         }
 
         ticket.Status = nuevoStatus;
-        ticket.Comprador.Id = compradorId.Value;
+        ticket.Comprador.Id =  compradorId.Value;
         Console.WriteLine($"El ticket con ID {ticket.Id} ahora tiene el estado {ticket.Status}.");
     }
 
