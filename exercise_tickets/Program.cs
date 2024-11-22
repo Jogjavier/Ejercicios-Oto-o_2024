@@ -1,30 +1,20 @@
 ﻿
-// Crear un programa para reventa de boletos de eventos, donde un Usuario vendedor puede poner a la venta boletos y otro Usuario comprador, los puede elegir y pagar. +
-//Hacer el modelado de los objetos que podrian ser utilizados
+
+// JAvier
+// Mover metodos de carga, guardado y modificacion de status de tickets, moverlo a una clase TicketRepository,
+// esta clase tendra los metodos GetTickets,  CambiarEstatusTicket, GuardarTicket 
+// Todos estos metodos escribiran y leeran sobre un archivo de texto serializando los datos. 
 
 
-/* Si el usuario es comprador, mostrar la lista de todos los boletos disponibles */  // Javier
-
-
-/* Crear un metodo que, reciba como parametro el id del boleto y cambie el status a vendido y muestre los boletos comprados por el usuario
-comprador */  // Alvaro
-
-/* Crear un metodo para guardar la informacion de los tickets para vender  y cada archivo de tickets debera llamarse con el id del vendedor */
-// Osvaldo 
-
-/* Obtener el listado de tickets disponibles desde este archivo cuando un comprador pregunte por ellos */ // Alvaro
-
-/* Crear un metodo para guardar la informacion de los tickets comprados y cada archivo de tickets debera llamarse con el id del vendedor */
-// Itzel o Javier. 
-
-//Crear un metodo para cambiar el estatus de la lsita de tickets que diga si el boleto es de comprador o de vendedor,solo va a exixtir una lista. --Javier
-
+// Alvaro
+// Modificar Vendedor Forms para que los datos se guarden serializados en el archivo. 
+// Modificar Comprador para que solo quede como DTO, 
+// Agregar metodos para pedir y guardar los datos del comprador
 
 
 using exercise_tickets;
 
 
- 
 
 Console.WriteLine("Ingresar datos del usuario");
 

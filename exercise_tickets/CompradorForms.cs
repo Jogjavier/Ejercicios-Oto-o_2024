@@ -44,6 +44,7 @@ public class CompradorForms
             Console.WriteLine($"ID: {boleto.Id}, Evento: {boleto.NombreEvento}, Precio: {boleto.Precio}");
         }
     }
+
     public void GuardarTicketsComprados()
     {
         string fileName = $"tickets_vendedor_{_vendedor.Id}.txt";
