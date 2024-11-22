@@ -10,11 +10,9 @@ public class TicketForms
         this._vendedor = vendedor;
         this._listaTickets = GetTickets();
 
+        
     }
     
-
- 
-
     public void MostrarBoletosDisponibles  () 
     { 
 
@@ -96,7 +94,7 @@ public class TicketForms
                 ticket.NombreEvento = NombreEvento;
                 ticket.Status = StatusTicket.OnSale;
                 _listaTickets.Add(ticket);
-                GuardarTicketEnArchivo(ticket);
+              //  GuardarTicketEnArchivo(ticket);
             }
          }
          else 
@@ -105,19 +103,9 @@ public class TicketForms
         }
     }
 
-    public class TicketForms
-{
-    private List<Ticket> _listaTickets;
+  
 
-    public TicketForms()
-    {
-        // Inicialización de la lista de tickets (ejemplo)
-        _listaTickets = new List<Ticket>
-        {
-            new Ticket { Id = 1, NombreEvento = "Concierto Rock", Precio = 75.50, VendedorId = 123, Status = StatusTicket.OnSale },
-            new Ticket { Id = 2, NombreEvento = "Festival de Jazz", Precio = 120.00, VendedorId = 456, Status = StatusTicket.OnSale }
-        };
-    }
+  
     //Javier 
     public void CambiarEstadoTicket(int ticketId, int? compradorId, StatusTicket nuevoStatus)
     {
@@ -136,10 +124,10 @@ public class TicketForms
         }
 
         ticket.Status = nuevoStatus;
-        ticket.CompradorId = compradorId;
+        ticket.Comprador.Id = compradorId.Value;
         Console.WriteLine($"El ticket con ID {ticket.Id} ahora tiene el estado {ticket.Status}.");
     }
-}
+
 
     /* Obtener el listado de tickets disponibles desde este archivo cuando un comprador pregunte por ellos - Álvaro */ 
     private List<Ticket> ObtenerTicketsDeArchivo()

@@ -6,12 +6,12 @@ public class Comprador : Usuario
 
    public Comprador()
    {
-      boletosComprados = new List<Ticket>;
+      boletosComprados = new List<Ticket>();
    }
 
    public void ComprarBoleto(int ticketId, List<Ticket> listaTickets)
    {
-      var ticket = listaTickets.FirstOrDefault( x => x.Id == ticketId && x.Status == StatusTicket.onSale);
+      var ticket = listaTickets.FirstOrDefault( x => x.Id == ticketId && x.Status == StatusTicket.OnSale);
 
       if (ticket != null)
       {
@@ -25,7 +25,7 @@ public class Comprador : Usuario
       }
       else
       {
-         Console.WriteLine("Boleto n(o disponible o no existe")
+            Console.WriteLine("Boleto n(o disponible o no existe");
       }
    }
 
@@ -46,7 +46,7 @@ public class Comprador : Usuario
 
    public void GuardarBoletosComprados()
    {
-      string fileName = $"boletos_comprador_{this.Id}.txt"
+        string fileName = $"boletos_comprador_{this.Id}.txt";
 
       using (StreamWriter writer = new StreamWriter(fileName))
       {
