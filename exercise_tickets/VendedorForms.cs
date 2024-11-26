@@ -3,15 +3,17 @@ public class VendedorForms
     // Campo privado que almacena la referencia al objeto Vendedor asociado
     private readonly Vendedor _vendedor;
 
+    private readonly IFileRepository _fileRepository;
     public Vendedor Vendedor 
     { 
         get { return _vendedor;}
     }
 
-    public VendedorForms(Vendedor vendedor)
+    public VendedorForms(Vendedor vendedor, IFileRepository _fileRepository)
      {
         // Asigna el vendedor recibido
         this._vendedor = vendedor;
+        this._fileRepository = _fileRepository;
      }
 
     public void CapturaDatosVendedor()
@@ -28,8 +30,8 @@ public class VendedorForms
         // Crea una cadena que combina los datos del vendedor en formato CSV   
         var fila = $"{_vendedor.Nombre}, {_vendedor.Direccion}, {_vendedor.Email}";
 
-        // Agrega la cadena en formato csv al archivo
-        File.AppendAllText("vendedor_data.txt", fila + Environment.NewLine);
+        _fileRepository.SaveFile("vendedor_data.txt", fila + Environment.NewLine  );
+        // Agrega la cadena en formato csv al archivo         
 
     }
 }

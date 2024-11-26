@@ -24,7 +24,7 @@ if (input == 'V')
 { 
     usuario = new Vendedor();
     // Creamos un formulario para capturar datos del vendedor
-    VendedorForms forms = new VendedorForms((Vendedor)usuario);
+    VendedorForms forms = new VendedorForms( (Vendedor)usuario, null);
     // Llamamos al método que captura los datos del vendedor
     forms.CapturaDatosVendedor();
 }
