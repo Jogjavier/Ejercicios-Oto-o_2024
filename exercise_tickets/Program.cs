@@ -23,8 +23,13 @@ Usuario usuario;
 if (input == 'V')
 { 
     usuario = new Vendedor();
-    // Creamos un formulario para capturar datos del vendedor
-    VendedorForms forms = new VendedorForms( (Vendedor)usuario, null);
+
+    // Crea una instancia de FileRepository
+    IFileRepository fileRepository = new FileRepository();
+
+    // Pasa la instancia de FileRepository al formulario
+    VendedorForms forms = new VendedorForms( (Vendedor)usuario, fileRepository);
+
     // Llamamos al método que captura los datos del vendedor
     forms.CapturaDatosVendedor();
 }

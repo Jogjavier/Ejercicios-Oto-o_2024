@@ -6,7 +6,7 @@ public class VendedorForms
     private readonly IFileRepository _fileRepository;
     public Vendedor Vendedor 
     { 
-        get { return _vendedor;}
+        get { return _vendedor; }
     }
 
     public VendedorForms(Vendedor vendedor, IFileRepository _fileRepository)
@@ -30,8 +30,10 @@ public class VendedorForms
         // Crea una cadena que combina los datos del vendedor en formato CSV   
         var fila = $"{_vendedor.Nombre}, {_vendedor.Direccion}, {_vendedor.Email}";
 
-        _fileRepository.SaveFile("vendedor_data.txt", fila + Environment.NewLine  );
-        // Agrega la cadena en formato csv al archivo         
+        // Usa el repositorio para guardar la información
+        var resultado = _fileRepository.SaveFile("vendedor_data.txt", fila + Environment.NewLine);
 
+        // Muestra el resultado del guardado (mensaje de éxito o error)
+        Console.WriteLine(resultado);       
     }
 }
