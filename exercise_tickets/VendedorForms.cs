@@ -1,40 +1,39 @@
 public class VendedorForms 
 {
+    // Campo privado que almacena la referencia al objeto Vendedor asociado
     private readonly Vendedor _vendedor;
 
-    public Vendedor Vendedor { get { return _vendedor;}}
+    private readonly IFileRepository _fileRepository;
+    public Vendedor Vendedor 
+    { 
+        get { return _vendedor; }
+    }
 
-    public VendedorForms(Vendedor vendedor)
+    public VendedorForms(Vendedor vendedor, IFileRepository _fileRepository)
      {
-        
+        // Asigna el vendedor recibido
         this._vendedor = vendedor;
+        this._fileRepository = _fileRepository;
      }
 
-    public void CapturaDatosVendedor ()
+    public void CapturaDatosVendedor()
     {
-        Console.WriteLine("Nombre: ");
-
+        Console.WriteLine("\nNombre: ");
         _vendedor.Nombre = Console.ReadLine();
 
         Console.WriteLine("Direccion");
-
         _vendedor.Direccion = Console.ReadLine();
 
         Console.WriteLine("Email");
-
         _vendedor.Email = Console.ReadLine();
-        
-        var fila = _vendedor.Nombre + "," + _vendedor.Direccion + "," + _vendedor.Email;
-        List<string> lista = new List<string>();
-        lista.Add(fila);
-        
-        File.WriteAllLines("archivot.txt",lista);
-        File.WriteAllText("archivot.txt", fila);
 
-        var filesreaded = File.ReadAllLines("archivot.txt");
+        // Crea una cadena que combina los datos del vendedor en formato CSV   
+        var fila = $"{_vendedor.Nombre}, {_vendedor.Direccion}, {_vendedor.Email}";
+
+        // Usa el repositorio para guardar la información
+        var resultado = _fileRepository.SaveFile("vendedor_data.txt", fila + Environment.NewLine);
+
+        // Muestra el resultado del guardado (mensaje de éxito o error)
+        Console.WriteLine(resultado);       
     }
-
-
- 
-
 }
