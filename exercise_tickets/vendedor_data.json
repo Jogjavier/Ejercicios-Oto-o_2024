@@ -1,0 +1,16 @@
+[
+  {
+    "Nombre": "Panchito",
+    "Direccion": "Aquiles Serdan",
+    "Email": "panchitoserdan@world.com",
+    "tipoUsuario": 0,
+    "Id": 0
+  },
+  {
+    "Nombre": "Kiko",
+    "Direccion": "Cuauthemoc",
+    "Email": "kikocuau@lopki.com.mx",
+    "tipoUsuario": 0,
+    "Id": 0
+  }
+]

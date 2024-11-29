@@ -12,4 +12,13 @@ public class FileRepository : IFileRepository
             return $"Error al guardar el archivo: {ex.Message}";
         }
     }
+
+    public string SaveFile (Vendedor vendedor)
+    {
+         // Crea una cadena que combina los datos del vendedor en formato CSV   
+        var fila = $"{vendedor.Nombre}, {vendedor.Direccion}, {vendedor.Email}";
+
+         File.AppendAllText("Vendedor_data.txt", fila);
+            return "Archivo guardado exitosamente.";
+    }
 }
