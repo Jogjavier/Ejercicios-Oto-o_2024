@@ -32,6 +32,10 @@ if (input == 'V')
 
     // Llamamos al método que captura los datos del vendedor
     forms.CapturaDatosVendedor();
+
+    JsonFileRepository jsonRepo = new JsonFileRepository();
+    string mensaje = jsonRepo.SaveFile((Vendedor) usuario);
+    Console.WriteLine(mensaje);
 }
 else if (input == 'C')
 {
