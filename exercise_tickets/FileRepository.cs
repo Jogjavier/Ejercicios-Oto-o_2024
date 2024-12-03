@@ -12,20 +12,8 @@ public class FileRepository : IFileRepository
             return $"Error al guardar el archivo: {ex.Message}";
         }
     }
-    public string SaveJsonInFile<T>(string fileName, T obj)
-    {
-        try
-        {
-            string jsonString = JsonSerializer.Serialize(obj);
-            File.WriteAllText(fileName, jsonString);
-            return "Archivo JSON guardado exitosamente.";
-        }
-        catch (Exception ex)
-        {
-            return $"Error al guardar el archivo JSON: {ex.Message}";
-        }
-    }
-}
+    
+
 
     public string SaveFile (Vendedor vendedor)
     {
@@ -34,5 +22,10 @@ public class FileRepository : IFileRepository
 
          File.AppendAllText("Vendedor_data.txt", fila);
             return "Archivo guardado exitosamente.";
+    }
+
+    public string SaveJsonInFile<T>(string fileName, T obj)
+    {
+        throw new NotImplementedException();
     }
 }
