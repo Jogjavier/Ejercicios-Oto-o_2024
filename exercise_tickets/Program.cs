@@ -1,13 +1,28 @@
 ﻿// JAvier
-// Mover metodos de carga, guardado y modificacion de status de tickets, moverlo a una clase TicketRepository,
-// esta clase tendra los metodos GetTickets,  CambiarEstatusTicket, GuardarTicket 
-// Todos estos metodos escribiran y leeran sobre un archivo de texto serializando los datos. 
+// Agregar una clase de Lugar de Eventos. Esta clase debera guardar los lugares de un evento si no existen. 
+// Direccion, 
+//   Ciudad, Localidad, Colonia, Numero, 
+// Capacidad MAxima  de espectadores. 
+// Tiene estacionamiento?  
+
+
+// Agregar en el ticket el campo Lugar con la clase recien definida. 
+
 
 
 // Alvaro
-// Modificar Vendedor Forms para que los datos se guarden serializados en el archivo. Listo
-// Modificar Comprador para que solo quede como DTO. Listo
-// Agregar metodos para pedir y guardar los datos del comprador
+// Modificar la clase comprador para que llame al metodo generico de guardar en el json 
+// Agregar una clase de Eventos. 
+// Descripcion del evento, lugar, fecha, Titulo, Categoria. 
+// Agregar en el ticket el campo Evento. 
+
+
+// IVAN
+// Agregar al ticket los campos 
+// Lugar del evento
+// Fecha del evento
+// Descripcion 
+// Hacer validacion y agregar identificador si es un evento con asiento numerado
 
 
 using exercise_tickets;

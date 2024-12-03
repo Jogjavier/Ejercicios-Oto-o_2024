@@ -5,4 +5,6 @@ public interface IFileRepository
     public string SaveFile (string fileName, string Content);
 
     public string SaveFile(Vendedor vendedor);
+
+    public string SaveJsonInFile<T>(string fileName, T obj);
 }
