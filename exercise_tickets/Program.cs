@@ -18,6 +18,8 @@ Console.WriteLine("¿Compras o vendes boletos (V/C)?:");
 
 var input = Console.ReadKey().KeyChar;
 
+TicketRepository repository = new TicketRepository();
+
 Usuario usuario;
 
 if (input == 'V')
@@ -43,7 +45,8 @@ else if (input == 'C')
 
 
     // Creamos un formulario de tickets con un vendedor
-    TicketForms ticketForms = new TicketForms(new Vendedor());
+    TicketForms ticketForms = new TicketForms((Vendedor)usuario, repository);
+
     // Mostramos los boletos disponibles en el sistema
     ticketForms.MostrarBoletosDisponibles();
     Console.ReadKey();
@@ -65,7 +68,7 @@ else
 if( usuario.GetType() == typeof(Vendedor))
 {
     // Creamos un formulario de tickets asociado al usuario vendedor
-    TicketForms ticketForms = new TicketForms((Vendedor)usuario);
+    TicketForms ticketForms = new TicketForms((Vendedor)usuario, repository);
     Console.WriteLine("¿Quieres dar de alta un boleto o quieres vender? (A/V)?:");
     var input2 = Console.ReadKey().KeyChar;
 

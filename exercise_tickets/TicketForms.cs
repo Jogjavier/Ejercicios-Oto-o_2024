@@ -1,19 +1,25 @@
 public class TicketForms 
-{
+{   
+    
     // Variable estática para generar identificadores únicos para los tickets
     static int id = 0;
     
     // Referencia al vendedor asociado a este formulario
     private readonly Vendedor _vendedor;
     
+    private readonly TicketRepository _repository;
+
+    
     // Lista de tickets disponibles para el vendedor
     public List<Ticket> _listaTickets {get;set;}
 
     // Constructor: Inicializa el formulario con un vendedor y obtiene la lista inicial de tickets
-    public TicketForms(Vendedor vendedor)
+    public TicketForms(Vendedor vendedor, TicketRepository repository)
     {
         this._vendedor = vendedor;
-        this._listaTickets = GetTickets();        
+        //this._listaTickets = GetTickets(); 
+        this._repository = repository; 
+        this._listaTickets = _repository.GetTickets();    
     }
     
     // Muestra en consola los boletos disponibles que están a la venta
@@ -28,48 +34,8 @@ public class TicketForms
         }
     }
     
-    // Genera una lista inicial de tickets predeterminados
-    private List<Ticket> GetTickets()
-    {
-        return new List<Ticket>
-        {
-            new Ticket
-            {
-                Id = 1,
-                NombreEvento = "Concierto Rock",
-                Status = StatusTicket.OnSale,
-                Precio = 75.50
-            },
-            new Ticket
-            {
-                Id = 2,
-                NombreEvento = "Festival de Jazz",
-                Status = StatusTicket.OnSale,
-                Precio = 120.00
-            },
-            new Ticket
-            {
-                Id = 3,
-                NombreEvento = "Teatro Musical",
-                Status = StatusTicket.OnSale,
-                Precio = 95.00
-            },
-            new Ticket
-            {
-                Id = 4,
-                NombreEvento = "Partido de Fútbol",
-                Status = StatusTicket.OnSale,
-                Precio = 85.00
-            },
-            new Ticket
-            {
-                Id = 5,
-                NombreEvento = "Exposición de Arte",
-                Status = StatusTicket.OnSale,
-                Precio = 45.00
-            }
-        };
-    }
+    
+  
 
     // Permite capturar un nuevo ticket y añadirlo a la lista de tickets disponibles
     public void CapturarNuevoTicket()
@@ -110,32 +76,7 @@ public class TicketForms
         }
     }
   
-    // Cambia el estado de un ticket
-    public void CambiarEstadoTicket(int ticketId, int? compradorId, StatusTicket nuevoStatus)
-    {
-        // Buscar el ticket por ID
-        var ticket = _listaTickets.FirstOrDefault(t => t.Id == ticketId);
-
-        // Validar si el ticket existe
-        if (ticket == null)
-        {
-            Console.WriteLine("El ticket no existe.");
-            return;
-        }
-
-        // Validar si el ticket ya fue vendido
-        if (ticket.Status == StatusTicket.Sold)
-        {
-            Console.WriteLine("El ticket ya ha sido vendido.");
-            return;
-        }
-
-        // Actualizar el estado y asignar el ID del comprador
-        ticket.Status = nuevoStatus;
-        ticket.Comprador.Id =  compradorId.Value;
-
-        Console.WriteLine($"El ticket con ID {ticket.Id} ahora tiene el estado {ticket.Status}.");
-    }
+  
 
 
     // Obtiene el listado de tickets desde un archivo de texto
