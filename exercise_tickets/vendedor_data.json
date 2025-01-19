@@ -12,5 +12,12 @@
     "Email": "kikocuau@lopki.com.mx",
     "tipoUsuario": 0,
     "Id": 0
+  },
+  {
+    "Nombre": "saul",
+    "Direccion": "lopez",
+    "Email": "jog.com",
+    "tipoUsuario": 0,
+    "Id": 0
   }
 ]

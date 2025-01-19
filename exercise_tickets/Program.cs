@@ -90,6 +90,61 @@ if( usuario.GetType() == typeof(Vendedor))
 
     if(input2 == 'A')
     {
+         Console.WriteLine("\n¿Deseas registrar un nuevo lugar de evento o usar uno existente? (N/E):");
+        var inputLugar = Console.ReadKey().KeyChar;
+
+        LugarEventos lugarEvento = null;
+
+        if (inputLugar == 'N' || inputLugar == 'n')
+        {
+            // Capturamos los datos del nuevo lugar
+            Console.WriteLine("\nIngresa la dirección del lugar:");
+            string direccion = Console.ReadLine();
+
+            Console.WriteLine("Ingresa la ciudad:");
+            string ciudad = Console.ReadLine();
+
+            Console.WriteLine("Ingresa la localidad:");
+            string localidad = Console.ReadLine();
+
+            Console.WriteLine("Ingresa la colonia:");
+            string colonia = Console.ReadLine();
+
+            Console.WriteLine("Ingresa el número:");
+            string numero = Console.ReadLine();
+
+            Console.WriteLine("Ingresa la capacidad máxima de espectadores:");
+            int capacidadMaxima = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("¿Tiene estacionamiento? (S/N):");
+            bool tieneEstacionamiento = Console.ReadKey().KeyChar == 'S';
+
+            // Creamos el nuevo lugar de evento
+            lugarEvento = new LugarEventos(direccion, ciudad, localidad, colonia, numero, capacidadMaxima, tieneEstacionamiento);
+
+            // Registramos el lugar
+            LugarEventos.RegistrarLugar(lugarEvento);
+            Console.WriteLine("\nLugar de evento registrado exitosamente.");
+        }
+         else if (inputLugar == 'E' || inputLugar == 'e')
+        {
+            // Mostramos los lugares existentes
+            Console.WriteLine("\nLugares de eventos registrados:");
+            LugarEventos.MostrarLugares();
+
+            Console.WriteLine("\nSelecciona el ID del lugar que deseas usar:");
+            int idLugar = int.Parse(Console.ReadLine());
+            
+
+            if (lugarEvento != null)
+            {
+                Console.WriteLine($"Has seleccionado el lugar: {lugarEvento.Direccion}, {lugarEvento.Ciudad}");
+            }
+            else
+            {
+                Console.WriteLine("ID inválido. No se seleccionó ningún lugar.");
+            }
+        }
         // Llamamos al método para capturar los datos de un nuevo ticket
         ticketForms.CapturarNuevoTicket();
         // Mostramos la lista de boletos disponibles después de dar de alta
